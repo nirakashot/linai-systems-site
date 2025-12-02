@@ -49,7 +49,7 @@
                 <h1 class="hero-title">Never Miss a Phone Call Again</h1>
                 <p class="hero-subtitle">Always-on human-like AI phone assistant that answers calls, takes orders, and boosts restaurant revenue.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#pricing" class="btn btn-primary">Get Started</a>
                     <a href="#solution" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -202,7 +202,7 @@
             
             <div class="pricing-grid">
                 <!-- Standard Plan -->
-                <div class="pricing-card">
+                <div class="pricing-card" data-plan="Standard">
                     <div class="plan-header">
                         <h3 class="plan-name">Standard</h3>
                         <div class="plan-price">
@@ -210,36 +210,68 @@
                             <span class="price-period">/mo + 5%</span>
                         </div>
                     </div>
-                    <p class="plan-description">Premium performance for restaurants serious about growth.</p>
+                    <p class="plan-description">A smarter start to seamless phone ordering.</p>
                     <a href="#contact" class="btn-plan">Get Started</a>
                 </div>
 
                 <!-- Plus Plan -->
-                <div class="pricing-card featured">
+                <div class="pricing-card featured" data-plan="Plus">
                     <div class="featured-badge">Most Popular</div>
                     <div class="plan-header">
                         <h3 class="plan-name">Plus</h3>
                         <div class="plan-price">
-                            <span class="price-amount">$199</span>
+                            <span class="price-amount">$249</span>
                             <span class="price-period">/mo + 3%</span>
                         </div>
                     </div>
-                    <p class="plan-description">Designed for high-volume restaurants that demand the best.</p>
+                    <p class="plan-description">Optimized performance for growing restaurants.</p>
+                    <a href="#contact" class="btn-plan">Get Started</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card" data-plan="Prime">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Prime</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$499</span>
+                            <span class="price-period">/mo + 1.5%</span>
+                        </div>
+                    </div>
+                    <p class="plan-description">Engineered for peak hours and high-volume operations.</p>
                     <a href="#contact" class="btn-plan">Get Started</a>
                 </div>
 
                 <!-- Prime Plan -->
-                <div class="pricing-card">
+                <div class="pricing-card" data-plan="Enterprise">
                     <div class="plan-header">
-                        <h3 class="plan-name">Prime</h3>
+                        <h3 class="plan-name">Enterprise</h3>
                         <div class="plan-price">
                             <span class="price-amount">$999</span>
                             <span class="price-period">/mo + 1%</span>
                         </div>
                     </div>
-                    <p class="plan-description">Engineered for restaurants where every minute - and every customer - matters.</p>
+                    <p class="plan-description">Enterprise intelligence, built to scale.</p>
                     <a href="#contact" class="btn-plan">Get Started</a>
                 </div>
+            </div>
+
+            <!-- Pricing Calculator -->
+            <div class="pricing-calculator">
+                <h3>Find Your Best Plan</h3>
+                <p>Slide to see which plan saves you the most based on your monthly phone order volume:</p>
+                <div class="calculator-slider">
+                    <div class="slider-value">
+                        <span class="currency-symbol">$</span>
+                        <span id="revenueDisplay">10,000</span>
+                        <span class="value-label">/month</span>
+                    </div>
+                    <input type="range" id="monthlyRevenue" min="0" max="100" value="30">
+                    <div class="slider-range">
+                        <span>$0</span>
+                        <span>$120K</span>
+                    </div>
+                </div>
+                <div id="calculatorResult" class="calculator-result"></div>
             </div>
         </div>
     </section>
