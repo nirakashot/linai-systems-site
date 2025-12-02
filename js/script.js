@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const plans = [
         { name: 'Standard', monthly: 99, commission: 0.05 },
         { name: 'Plus', monthly: 249, commission: 0.03 },
-        { name: 'Prime', monthly: 499, commission: 0.015 },
+        { name: 'Prime', monthly: 499, commission: 0.02 },
         { name: 'Enterprise', monthly: 999, commission: 0.01 }
     ];
 
@@ -157,16 +157,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (revenueInput) {
         // Map slider position (0-100) to revenue with non-linear scale
-        // 0-60 maps to $0-$20K (more granular)
-        // 60-100 maps to $20K-$120K (larger jumps)
+        // 0-50 maps to $0-$25K (increment by $1000)
+        // 50-75 maps to $25K-$50K (increment by $5000)
+        // 75-100 maps to $50K-$100K (increment by $10000)
         function sliderToRevenue(sliderValue) {
-            if (sliderValue <= 60) {
-                // 0-60 = $0-$20K, increment by $1000
-                return Math.round((sliderValue / 60) * 20) * 1000;
+            if (sliderValue <= 50) {
+                // 0-50 = $0-$25K, increment by $1000
+                return Math.round((sliderValue / 50) * 25) * 1000;
+            } else if (sliderValue <= 75) {
+                // 50-75 = $25K-$50K, increment by $5000
+                const above25k = sliderValue - 50;
+                return 25000 + Math.round((above25k / 25) * 5) * 5000;
             } else {
-                // 60-100 = $20K-$120K, increment by $10K
-                const above20k = sliderValue - 60;
-                return 20000 + Math.round((above20k / 40) * 10) * 10000;
+                // 75-100 = $50K-$100K, increment by $10000
+                const above50k = sliderValue - 75;
+                return 50000 + Math.round((above50k / 25) * 5) * 10000;
             }
         }
         
