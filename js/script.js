@@ -84,106 +84,49 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Pricing Calculator
-    const revenueInput = document.getElementById('monthlyRevenue');
-    const revenueDisplay = document.getElementById('revenueDisplay');
+    const ordersInput = document.getElementById('dailyOrders');
+    const ordersDisplay = document.getElementById('ordersDisplay');
     const calculatorResult = document.getElementById('calculatorResult');
 
-    const plans = [
-        { name: 'Standard', monthly: 99, commission: 0.05 },
-        { name: 'Plus', monthly: 249, commission: 0.03 },
-        { name: 'Prime', monthly: 499, commission: 0.02 },
-        { name: 'Enterprise', monthly: 999, commission: 0.01 }
-    ];
+    const PHONE_FEE = 1.49;
+    const WEB_FEE = 0.99;
 
     function formatNumber(num) {
         return num.toLocaleString('en-US');
     }
 
-    function calculatePricing(revenue) {
+    function calculatePricing(dailyOrders) {
         // Update display value
-        if (revenueDisplay) {
-            revenueDisplay.textContent = formatNumber(revenue);
+        if (ordersDisplay) {
+            ordersDisplay.textContent = dailyOrders;
         }
 
-        if (!revenue || revenue <= 0) {
-            calculatorResult.innerHTML = '<div class="best-plan" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Slide to find your best plan</div>';
-            // Remove all highlights
-            document.querySelectorAll('.pricing-card').forEach(card => {
-                card.classList.remove('recommended');
-            });
+        if (!dailyOrders || dailyOrders <= 0) {
+            calculatorResult.innerHTML = '<div class="best-plan" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Slide to estimate your monthly cost</div>';
             return;
         }
 
-        const results = plans.map(plan => ({
-            ...plan,
-            totalCost: plan.monthly + (revenue * plan.commission)
-        }));
-
-        results.sort((a, b) => a.totalCost - b.totalCost);
-        const bestPlan = results[0];
+        const monthlyOrders = dailyOrders * 30;
+        const phoneCost = monthlyOrders * PHONE_FEE;
+        const webCost = monthlyOrders * WEB_FEE;
 
         const html = `
-            <div class="best-plan clickable" data-best-plan="${bestPlan.name}">
-                💡 <strong>${bestPlan.name}</strong> is your best value at this volume
+            <div class="best-plan">
+                📞 <strong>${formatNumber(monthlyOrders)} phone orders/mo</strong> = $${formatNumber(Math.round(phoneCost))}/mo<br>
+                🌐 <strong>${formatNumber(monthlyOrders)} online orders/mo</strong> = $${formatNumber(Math.round(webCost))}/mo
             </div>
         `;
 
         calculatorResult.innerHTML = html;
-
-        // Highlight the best plan card
-        document.querySelectorAll('.pricing-card').forEach(card => {
-            card.classList.remove('recommended');
-            if (card.dataset.plan === bestPlan.name) {
-                card.classList.add('recommended');
-            }
-        });
-
-        // Add click handler to result
-        const resultDiv = calculatorResult.querySelector('.best-plan');
-        if (resultDiv) {
-            resultDiv.addEventListener('click', () => {
-                const targetCard = document.querySelector(`.pricing-card[data-plan="${bestPlan.name}"]`);
-                if (targetCard) {
-                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    // Add temporary pulse effect
-                    targetCard.style.animation = 'none';
-                    setTimeout(() => {
-                        targetCard.style.animation = 'highlightPulse 1s ease-in-out';
-                    }, 10);
-                }
-            });
-        }
     }
 
-    if (revenueInput) {
-        // Map slider position (0-100) to revenue with non-linear scale
-        // 0-50 maps to $0-$25K (increment by $1000)
-        // 50-75 maps to $25K-$50K (increment by $5000)
-        // 75-100 maps to $50K-$100K (increment by $10000)
-        function sliderToRevenue(sliderValue) {
-            if (sliderValue <= 50) {
-                // 0-50 = $0-$25K, increment by $1000
-                return Math.round((sliderValue / 50) * 25) * 1000;
-            } else if (sliderValue <= 75) {
-                // 50-75 = $25K-$50K, increment by $5000
-                const above25k = sliderValue - 50;
-                return 25000 + Math.round((above25k / 25) * 5) * 5000;
-            } else {
-                // 75-100 = $50K-$100K, increment by $10000
-                const above50k = sliderValue - 75;
-                return 50000 + Math.round((above50k / 25) * 5) * 10000;
-            }
-        }
-        
-        revenueInput.addEventListener('input', (e) => {
-            const sliderValue = parseFloat(e.target.value);
-            const revenue = sliderToRevenue(sliderValue);
-            calculatePricing(revenue);
+    if (ordersInput) {
+        ordersInput.addEventListener('input', (e) => {
+            calculatePricing(parseInt(e.target.value));
         });
 
         // Initial calculation with default value
-        const initialRevenue = sliderToRevenue(parseFloat(revenueInput.value));
-        calculatePricing(initialRevenue);
+        calculatePricing(parseInt(ordersInput.value));
     }
 });
 
