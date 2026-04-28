@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.problem-card, .benefits, .contact-item');
+    const animatedElements = document.querySelectorAll('.problem-card, .benefits, .pricing-card, .contact-item');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
@@ -90,6 +90,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const PHONE_FEE = 1.49;
     const WEB_FEE = 0.99;
+    const pageLang = document.documentElement.lang || 'en';
+    const copy = {
+        en: {
+            empty: 'Slide to estimate your monthly flat platform fee',
+            phone: 'phone orders/mo',
+            web: 'online orders/mo',
+            equals: '=',
+            suffix: '/mo'
+        },
+        zh: {
+            empty: '拖动滑块估算每月固定平台费',
+            phone: '电话订单/月',
+            web: '网站订单/月',
+            equals: '=',
+            suffix: '/月'
+        },
+        es: {
+            empty: 'Mueva el control para estimar su tarifa fija mensual',
+            phone: 'pedidos telefónicos/mes',
+            web: 'pedidos en línea/mes',
+            equals: '=',
+            suffix: '/mes'
+        }
+    }[pageLang.startsWith('zh') ? 'zh' : pageLang.startsWith('es') ? 'es' : 'en'];
 
     function formatNumber(num) {
         return num.toLocaleString('en-US');
@@ -102,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (!dailyOrders || dailyOrders <= 0) {
-            calculatorResult.innerHTML = '<div class="best-plan" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">Slide to estimate your monthly cost</div>';
+            calculatorResult.innerHTML = `<div class="best-plan">${copy.empty}</div>`;
             return;
         }
 
@@ -112,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const html = `
             <div class="best-plan">
-                📞 <strong>${formatNumber(monthlyOrders)} phone orders/mo</strong> = $${formatNumber(Math.round(phoneCost))}/mo<br>
-                🌐 <strong>${formatNumber(monthlyOrders)} online orders/mo</strong> = $${formatNumber(Math.round(webCost))}/mo
+                <strong>${formatNumber(monthlyOrders)} ${copy.phone}</strong> ${copy.equals} $${formatNumber(Math.round(phoneCost))}${copy.suffix}<br>
+                <strong>${formatNumber(monthlyOrders)} ${copy.web}</strong> ${copy.equals} $${formatNumber(Math.round(webCost))}${copy.suffix}
             </div>
         `;
 

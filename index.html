@@ -47,10 +47,16 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Never Miss a Phone Call Again</h1>
-                <p class="hero-subtitle">Always-on human-like AI phone assistant that answers calls, takes orders, and boosts restaurant revenue.</p>
+                <p class="hero-kicker">Built for busy local restaurants</p>
+                <p class="hero-subtitle">AI answers the phone, takes orders, and sends them straight to your team, with simple flat fees instead of percentage commissions.</p>
                 <div class="hero-cta">
-                    <a href="#pricing" class="btn btn-primary">Get Started</a>
-                    <a href="#solution" class="btn btn-secondary">Learn More</a>
+                    <a href="#pricing" class="btn btn-primary">View Flat Rates</a>
+                    <a href="#solution" class="btn btn-secondary">See How It Works</a>
+                </div>
+                <div class="hero-proof">
+                    <span>No percentage cut</span>
+                    <span>Phone + web orders</span>
+                    <span>English + Chinese</span>
                 </div>
             </div>
         </div>
@@ -193,58 +199,76 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Pricing</h2>
+                <h2>Flat Rate Pricing</h2>
                 <div class="free-trial-banner">
-                    <span class="trial-icon">🎁</span>
-                    <span class="trial-text">Start with a <strong>14-day free trial</strong> — No credit card required</span>
+                    <span class="trial-text">Start with a <strong>14-day free trial</strong> - no credit card required</span>
                 </div>
             </div>
-            
-            <div class="pricing-grid pricing-grid-single">
-                <!-- Phone Orders -->
-                <div class="pricing-card" data-plan="Phone">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Phone Orders</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$1.49</span>
-                            <span class="price-period">/order</span>
+
+            <div class="pricing-shell">
+                <div class="pricing-lead">
+                    <p class="pricing-eyebrow">No revenue share</p>
+                    <h3>Keep the order value. Pay a predictable flat fee only when an order comes in.</h3>
+                    <p>LinAI is designed for restaurants that do not want a marketplace-style percentage tax on every ticket. Phone and web orders use clear per-order rates, so higher check sizes stay yours.</p>
+                    <div class="pricing-comparison">
+                        <div>
+                            <span class="comparison-label">Typical marketplace</span>
+                            <strong>15-30%</strong>
+                            <small>of every order</small>
+                        </div>
+                        <div class="comparison-arrow">vs</div>
+                        <div>
+                            <span class="comparison-label">LinAI flat fee</span>
+                            <strong>$0.99-$1.49</strong>
+                            <small>per completed order</small>
                         </div>
                     </div>
-                    <p class="plan-description">AI phone assistant answers calls, takes orders, and sends them to your kitchen — 24/7.</p>
-                    <ul class="plan-features">
-                        <li>Zero missed calls</li>
-                        <li>Bilingual AI (English + Chinese)</li>
-                        <li>Instant order to printer/POS</li>
-                        <li>No monthly fee, no contract</li>
-                    </ul>
-                    <a href="#contact" class="btn-plan">Get Started</a>
                 </div>
 
-                <!-- Web Orders -->
-                <div class="pricing-card featured" data-plan="Web">
-                    <div class="featured-badge">Best Value</div>
-                    <div class="plan-header">
-                        <h3 class="plan-name">Online Orders</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$0.99</span>
-                            <span class="price-period">/order</span>
+                <div class="pricing-rates">
+                    <div class="pricing-card" data-plan="Phone">
+                        <div class="plan-header">
+                            <h3 class="plan-name">AI Phone Orders</h3>
+                            <div class="plan-price">
+                                <span class="price-amount">$1.49</span>
+                                <span class="price-period">/completed order</span>
+                            </div>
                         </div>
+                        <p class="plan-description">For calls answered and orders captured by the AI phone assistant.</p>
+                        <ul class="plan-features">
+                            <li>Zero missed calls during rush hours</li>
+                            <li>Bilingual ordering support</li>
+                            <li>Instant ticket to printer/POS workflow</li>
+                            <li>No percentage commission</li>
+                        </ul>
+                        <a href="#contact" class="btn-plan">Start Trial</a>
                     </div>
-                    <p class="plan-description">Your own branded ordering website — customers order directly, no third-party commissions.</p>
-                    <ul class="plan-features">
-                        <li>Custom restaurant website</li>
-                        <li>Online payment via Stripe</li>
-                        <li>No 15-30% marketplace fees</li>
-                        <li>No monthly fee, no contract</li>
-                    </ul>
-                    <a href="#contact" class="btn-plan">Get Started</a>
+
+                    <div class="pricing-card featured" data-plan="Web">
+                        <div class="featured-badge">Lowest Cost Channel</div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">Online Orders</h3>
+                            <div class="plan-price">
+                                <span class="price-amount">$0.99</span>
+                                <span class="price-period">/completed order</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">For direct website orders through your branded ordering page.</p>
+                        <ul class="plan-features">
+                            <li>Restaurant-owned ordering website</li>
+                            <li>Stripe online payment support</li>
+                            <li>Customer pays you directly</li>
+                            <li>No marketplace commission</li>
+                        </ul>
+                        <a href="#contact" class="btn-plan">Start Trial</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Pricing Calculator -->
             <div class="pricing-calculator">
-                <h3>See What You'd Pay</h3>
-                <p>Slide to estimate your monthly cost based on order volume:</p>
+                <h3>Estimate Your Flat Fee</h3>
+                <p>Move the slider to see the monthly platform fee at your expected order volume.</p>
                 <div class="calculator-slider">
                     <div class="slider-value">
                         <span id="ordersDisplay">30</span>
@@ -308,14 +332,6 @@
                         <div class="contact-details">
                             <strong>Website:</strong>
                             <a href="http://www.linaisystems.com" target="_blank" rel="noopener">www.linaisystems.com</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div class="contact-details">
-                            <strong>Location:</strong>
-                            <span>Georgia, USA</span>
                         </div>
                     </div>
                 </div>

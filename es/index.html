@@ -46,10 +46,16 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Nunca Pierda una Llamada Telefónica</h1>
-                <p class="hero-subtitle">Asistente telefónico AI siempre activo, similar a humanos, que contesta llamadas, toma pedidos y aumenta los ingresos de su restaurante.</p>
+                <p class="hero-kicker">Creado para restaurantes locales ocupados</p>
+                <p class="hero-subtitle">AI contesta el teléfono, toma pedidos y los envía directamente a su equipo, con tarifas fijas simples en lugar de comisiones porcentuales.</p>
                 <div class="hero-cta">
-                    <a href="#pricing" class="btn btn-primary">Empezar Ahora</a>
-                    <a href="#solution" class="btn btn-secondary">Saber Más</a>
+                    <a href="#pricing" class="btn btn-primary">Ver Tarifas Fijas</a>
+                    <a href="#solution" class="btn btn-secondary">Ver Cómo Funciona</a>
+                </div>
+                <div class="hero-proof">
+                    <span>Sin porcentaje</span>
+                    <span>Pedidos por teléfono + web</span>
+                    <span>Inglés + chino</span>
                 </div>
             </div>
         </div>
@@ -192,58 +198,76 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Precios</h2>
+                <h2>Precios de Tarifa Fija</h2>
                 <div class="free-trial-banner">
-                    <span class="trial-icon">🎁</span>
-                    <span class="trial-text">Comience con una <strong>prueba gratuita de 14 días</strong> — Sin tarjeta de crédito</span>
+                    <span class="trial-text">Comience con una <strong>prueba gratuita de 14 días</strong> - sin tarjeta de crédito</span>
                 </div>
             </div>
 
-            <div class="pricing-grid pricing-grid-single">
-                <!-- Phone Orders -->
-                <div class="pricing-card" data-plan="Phone">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Pedidos por Teléfono</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$1.49</span>
-                            <span class="price-period">/pedido</span>
+            <div class="pricing-shell">
+                <div class="pricing-lead">
+                    <p class="pricing-eyebrow">Sin participación en ingresos</p>
+                    <h3>Conserve el valor del pedido. Pague una tarifa fija predecible solo cuando entra un pedido.</h3>
+                    <p>LinAI está diseñado para restaurantes que no quieren una comisión estilo marketplace en cada ticket. Los pedidos telefónicos y web usan tarifas claras por pedido, para que los tickets más grandes sigan siendo suyos.</p>
+                    <div class="pricing-comparison">
+                        <div>
+                            <span class="comparison-label">Marketplace típico</span>
+                            <strong>15-30%</strong>
+                            <small>de cada pedido</small>
+                        </div>
+                        <div class="comparison-arrow">vs</div>
+                        <div>
+                            <span class="comparison-label">Tarifa fija LinAI</span>
+                            <strong>$0.99-$1.49</strong>
+                            <small>por pedido completado</small>
                         </div>
                     </div>
-                    <p class="plan-description">Asistente telefónico AI que contesta llamadas, toma pedidos y los envía a su cocina — 24/7.</p>
-                    <ul class="plan-features">
-                        <li>Cero llamadas perdidas</li>
-                        <li>AI bilingüe (Inglés + Chino)</li>
-                        <li>Pedido instantáneo a impresora/POS</li>
-                        <li>Sin cuota mensual, sin contrato</li>
-                    </ul>
-                    <a href="#contact" class="btn-plan">Empezar Ahora</a>
                 </div>
 
-                <!-- Web Orders -->
-                <div class="pricing-card featured" data-plan="Web">
-                    <div class="featured-badge">Mejor Valor</div>
-                    <div class="plan-header">
-                        <h3 class="plan-name">Pedidos en Línea</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$0.99</span>
-                            <span class="price-period">/pedido</span>
+                <div class="pricing-rates">
+                    <div class="pricing-card" data-plan="Phone">
+                        <div class="plan-header">
+                            <h3 class="plan-name">Pedidos Telefónicos AI</h3>
+                            <div class="plan-price">
+                                <span class="price-amount">$1.49</span>
+                                <span class="price-period">/pedido completado</span>
+                            </div>
                         </div>
+                        <p class="plan-description">Para llamadas contestadas y pedidos capturados por el asistente telefónico AI.</p>
+                        <ul class="plan-features">
+                            <li>Cero llamadas perdidas en horas pico</li>
+                            <li>Soporte bilingüe para pedidos</li>
+                            <li>Ticket instantáneo al flujo de impresora/POS</li>
+                            <li>Sin comisión porcentual</li>
+                        </ul>
+                        <a href="#contact" class="btn-plan">Iniciar Prueba</a>
                     </div>
-                    <p class="plan-description">Su propio sitio web de pedidos — clientes piden directamente, sin comisiones de terceros.</p>
-                    <ul class="plan-features">
-                        <li>Sitio web personalizado</li>
-                        <li>Pago en línea con Stripe</li>
-                        <li>Sin comisiones del 15-30%</li>
-                        <li>Sin cuota mensual, sin contrato</li>
-                    </ul>
-                    <a href="#contact" class="btn-plan">Empezar Ahora</a>
+
+                    <div class="pricing-card featured" data-plan="Web">
+                        <div class="featured-badge">Canal de Menor Costo</div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">Pedidos en Línea</h3>
+                            <div class="plan-price">
+                                <span class="price-amount">$0.99</span>
+                                <span class="price-period">/pedido completado</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">Para pedidos directos en su propia página de pedidos con marca del restaurante.</p>
+                        <ul class="plan-features">
+                            <li>Sitio web de pedidos propio</li>
+                            <li>Pago en línea con Stripe</li>
+                            <li>El cliente le paga directamente</li>
+                            <li>Sin comisión de marketplace</li>
+                        </ul>
+                        <a href="#contact" class="btn-plan">Iniciar Prueba</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Pricing Calculator -->
             <div class="pricing-calculator">
-                <h3>Calcule su Costo</h3>
-                <p>Deslice para estimar su costo mensual según el volumen de pedidos:</p>
+                <h3>Estime su Tarifa Fija</h3>
+                <p>Mueva el control para ver la tarifa mensual de plataforma según su volumen esperado.</p>
                 <div class="calculator-slider">
                     <div class="slider-value">
                         <span id="ordersDisplay">30</span>
@@ -309,14 +333,6 @@
                             <a href="http://www.linaisystems.com" target="_blank" rel="noopener">www.linaisystems.com</a>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div class="contact-details">
-                            <strong>Ubicación:</strong>
-                            <span>Georgia, EE.UU.</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -326,7 +342,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 LinAI Systems. Todos los derechos reservados.</p>
+                <p>&copy; 2026 LinAI Systems. Todos los derechos reservados.</p>
                 <p>Asistente telefónico AI para restaurantes</p>
             </div>
         </div>

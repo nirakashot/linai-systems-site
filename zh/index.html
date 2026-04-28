@@ -47,10 +47,16 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">再也不错过任何来电</h1>
-                <p class="hero-subtitle">全天候智能AI电话助手，为餐厅接听电话、接收订单、提升营收。</p>
+                <p class="hero-kicker">为繁忙的本地餐厅打造</p>
+                <p class="hero-subtitle">AI自动接电话、接订单，并把订单直接送到店里；按单固定收费，不抽营业额百分比。</p>
                 <div class="hero-cta">
-                    <a href="#pricing" class="btn btn-primary">立即开始</a>
-                    <a href="#solution" class="btn btn-secondary">了解更多</a>
+                    <a href="#pricing" class="btn btn-primary">查看固定费率</a>
+                    <a href="#solution" class="btn btn-secondary">了解流程</a>
+                </div>
+                <div class="hero-proof">
+                    <span>不按比例抽成</span>
+                    <span>电话 + 网站订单</span>
+                    <span>中英文支持</span>
                 </div>
             </div>
         </div>
@@ -193,57 +199,76 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>价格方案</h2>
+                <h2>固定费率价格</h2>
                 <div class="free-trial-banner">
-                    <span class="trial-icon">🎁</span>
-                    <span class="trial-text"><strong>14天免费试用</strong> — 无需信用卡</span>
+                    <span class="trial-text"><strong>14天免费试用</strong> - 无需信用卡</span>
                 </div>
             </div>
-            
-            <div class="pricing-grid pricing-grid-single">
-                <!-- Phone Orders -->
-                <div class="pricing-card" data-plan="Phone">
-                    <div class="plan-header">
-                        <h3 class="plan-name">电话订单</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$1.49</span>
-                            <span class="price-period">/单</span>
+
+            <div class="pricing-shell">
+                <div class="pricing-lead">
+                    <p class="pricing-eyebrow">不抽营业额</p>
+                    <h3>订单金额留给餐厅。只有真实订单进来时，才收固定平台费。</h3>
+                    <p>LinAI适合不想被外卖平台按百分比抽成的餐厅。电话订单和网站订单都有清楚的按单固定费率，客单价越高，餐厅留下的越多。</p>
+                    <div class="pricing-comparison">
+                        <div>
+                            <span class="comparison-label">常见外卖平台</span>
+                            <strong>15-30%</strong>
+                            <small>每单抽成</small>
+                        </div>
+                        <div class="comparison-arrow">vs</div>
+                        <div>
+                            <span class="comparison-label">LinAI固定费</span>
+                            <strong>$0.99-$1.49</strong>
+                            <small>每个完成订单</small>
                         </div>
                     </div>
-                    <p class="plan-description">AI电话助手全天候自动接听来电、接收订单并发送到厨房。</p>
-                    <ul class="plan-features">
-                        <li>零漏接电话</li>
-                        <li>订单即时发送到打印机/POS</li>
-                        <li>无月费、无合约</li>
-                    </ul>
-                    <a href="#contact" class="btn-plan">立即开始</a>
                 </div>
 
-                <!-- Web Orders -->
-                <div class="pricing-card featured" data-plan="Web">
-                    <div class="featured-badge">最划算</div>
-                    <div class="plan-header">
-                        <h3 class="plan-name">网上订单</h3>
-                        <div class="plan-price">
-                            <span class="price-amount">$0.99</span>
-                            <span class="price-period">/单</span>
+                <div class="pricing-rates">
+                    <div class="pricing-card" data-plan="Phone">
+                        <div class="plan-header">
+                            <h3 class="plan-name">AI电话订单</h3>
+                            <div class="plan-price">
+                                <span class="price-amount">$1.49</span>
+                                <span class="price-period">/完成订单</span>
+                            </div>
                         </div>
+                        <p class="plan-description">AI电话助手接听来电、接收订单并送到店内流程。</p>
+                        <ul class="plan-features">
+                            <li>高峰期减少漏接电话</li>
+                            <li>中英文接单支持</li>
+                            <li>订单即时发送到打印机/POS流程</li>
+                            <li>不按百分比抽成</li>
+                        </ul>
+                        <a href="#contact" class="btn-plan">开始试用</a>
                     </div>
-                    <p class="plan-description">专属品牌点餐网站——客户直接下单，无第三方平台抽成。</p>
-                    <ul class="plan-features">
-                        <li>定制餐厅网站</li>
-                        <li>Stripe在线支付</li>
-                        <li>无15-30%平台佣金</li>
-                        <li>无月费、无合约</li>
-                    </ul>
-                    <a href="#contact" class="btn-plan">立即开始</a>
+
+                    <div class="pricing-card featured" data-plan="Web">
+                        <div class="featured-badge">最低成本渠道</div>
+                        <div class="plan-header">
+                            <h3 class="plan-name">网站订单</h3>
+                            <div class="plan-price">
+                                <span class="price-amount">$0.99</span>
+                                <span class="price-period">/完成订单</span>
+                            </div>
+                        </div>
+                        <p class="plan-description">客户通过餐厅自己的品牌点餐网站直接下单。</p>
+                        <ul class="plan-features">
+                            <li>餐厅自有点餐网站</li>
+                            <li>支持Stripe在线付款</li>
+                            <li>顾客直接付给餐厅</li>
+                            <li>无外卖平台佣金</li>
+                        </ul>
+                        <a href="#contact" class="btn-plan">开始试用</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Pricing Calculator -->
             <div class="pricing-calculator">
-                <h3>算算您的费用</h3>
-                <p>拖动滑块，根据每日订单量估算月度费用：</p>
+                <h3>估算固定平台费</h3>
+                <p>拖动滑块，根据预计订单量查看每月平台费。</p>
                 <div class="calculator-slider">
                     <div class="slider-value">
                         <span id="ordersDisplay">30</span>
@@ -309,14 +334,6 @@
                             <a href="http://www.linaisystems.com" target="_blank" rel="noopener">www.linaisystems.com</a>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div class="contact-details">
-                            <strong>地址：</strong>
-                            <span>美国乔治亚州</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -326,7 +343,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 LinAI Systems. 版权所有。</p>
+                <p>&copy; 2026 LinAI Systems. 版权所有。</p>
                 <p>为餐厅提供的AI电话助手</p>
             </div>
         </div>

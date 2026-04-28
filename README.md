@@ -130,10 +130,9 @@ linai-systems-site/
 ## 📞 Contact Information
 - **Phone:** 270-207-0538
 - **Email:** info@linaisystems.com
-- **Location:** Georgia, USA
 
 ## 📄 License
-Copyright © 2025 LinAI Systems. All rights reserved.
+Copyright © 2026 LinAI Systems. All rights reserved.
 
 ## 🤝 Contributing
 This is a company website. For inquiries, please contact us at info@linaisystems.com.
