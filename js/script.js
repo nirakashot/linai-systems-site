@@ -88,30 +88,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const ordersDisplay = document.getElementById('ordersDisplay');
     const calculatorResult = document.getElementById('calculatorResult');
 
-    const PHONE_FEE = 1.49;
     const WEB_FEE = 0.99;
+    const AVG_ORDER_VALUE = 35;
+    const MARKETPLACE_COMMISSION_RATE = 0.20;
     const pageLang = document.documentElement.lang || 'en';
     const copy = {
         en: {
-            empty: 'Slide to estimate your monthly flat platform fee',
-            phone: 'phone orders/mo',
-            web: 'online orders/mo',
-            equals: '=',
-            suffix: '/mo'
+            empty: 'Slide to estimate your monthly savings',
+            orders: 'direct orders/mo',
+            save: 'Estimated savings',
+            vs: 'vs. 20% marketplace commission',
+            keep: 'More revenue stays with the restaurant'
         },
         zh: {
-            empty: '拖动滑块估算每月固定平台费',
-            phone: '电话订单/月',
-            web: '网站订单/月',
-            equals: '=',
-            suffix: '/月'
+            empty: '拖动滑块估算每月节省',
+            orders: '自有订单/月',
+            save: '预计可省',
+            vs: '对比 20% 外卖平台抽成',
+            keep: '更多订单收入留在餐厅'
         },
         es: {
-            empty: 'Mueva el control para estimar su tarifa fija mensual',
-            phone: 'pedidos telefónicos/mes',
-            web: 'pedidos en línea/mes',
-            equals: '=',
-            suffix: '/mes'
+            empty: 'Mueva el control para estimar su ahorro mensual',
+            orders: 'pedidos directos/mes',
+            save: 'Ahorro estimado',
+            vs: 'vs. comisión de marketplace del 20%',
+            keep: 'Más ingresos quedan en el restaurante'
         }
     }[pageLang.startsWith('zh') ? 'zh' : pageLang.startsWith('es') ? 'es' : 'en'];
 
@@ -131,13 +132,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const monthlyOrders = dailyOrders * 30;
-        const phoneCost = monthlyOrders * PHONE_FEE;
-        const webCost = monthlyOrders * WEB_FEE;
+        const marketplaceCommission = monthlyOrders * AVG_ORDER_VALUE * MARKETPLACE_COMMISSION_RATE;
+        const directOrderFee = monthlyOrders * WEB_FEE;
+        const savings = Math.max(0, marketplaceCommission - directOrderFee);
 
         const html = `
             <div class="best-plan">
-                <strong>${formatNumber(monthlyOrders)} ${copy.phone}</strong> ${copy.equals} $${formatNumber(Math.round(phoneCost))}${copy.suffix}<br>
-                <strong>${formatNumber(monthlyOrders)} ${copy.web}</strong> ${copy.equals} $${formatNumber(Math.round(webCost))}${copy.suffix}
+                <strong>${formatNumber(monthlyOrders)} ${copy.orders}</strong><br>
+                ${copy.save}: <strong>$${formatNumber(Math.round(savings))}/mo</strong><br>
+                <span>${copy.vs}</span><br>
+                <span>${copy.keep}</span>
             </div>
         `;
 

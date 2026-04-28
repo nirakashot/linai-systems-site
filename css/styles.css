@@ -531,6 +531,14 @@ section {
     font-size: 1rem;
 }
 
+.pricing-calculator .calculator-note {
+    max-width: 680px;
+    margin: 1rem auto 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
 .calculator-slider {
     margin-bottom: 1.5rem;
 }
