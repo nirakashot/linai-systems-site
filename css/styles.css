@@ -156,7 +156,7 @@ body {
    =========================== */
 .hero {
     background:
-        linear-gradient(90deg, rgba(8, 19, 22, 0.92) 0%, rgba(8, 19, 22, 0.76) 48%, rgba(8, 19, 22, 0.28) 100%),
+        linear-gradient(90deg, rgba(8, 19, 22, 0.88) 0%, rgba(8, 19, 22, 0.64) 48%, rgba(8, 19, 22, 0.08) 100%),
         url('../assets/images/solution.png') center right / cover no-repeat;
     color: white;
     min-height: calc(100vh - 77px);
@@ -999,7 +999,7 @@ section {
 }
 
 .contact-content {
-    max-width: 700px;
+    max-width: 860px;
     margin: 0 auto;
     text-align: center;
 }
@@ -1012,8 +1012,10 @@ section {
 
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .contact-item {
@@ -1023,6 +1025,13 @@ section {
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     border: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 210px;
+    text-align: center;
+    min-width: 0;
 }
 
 .contact-item:hover {
@@ -1040,7 +1049,10 @@ section {
 .contact-details {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
+    width: 100%;
+    min-width: 0;
 }
 
 .contact-details strong {
@@ -1052,6 +1064,7 @@ section {
     color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease;
+    overflow-wrap: anywhere;
 }
 
 .contact-details a:hover {
@@ -1139,7 +1152,7 @@ section {
         min-height: auto;
         padding: 6.5rem 0 4.5rem;
         background:
-            linear-gradient(90deg, rgba(8, 19, 22, 0.92) 0%, rgba(8, 19, 22, 0.82) 100%),
+            linear-gradient(90deg, rgba(8, 19, 22, 0.9) 0%, rgba(8, 19, 22, 0.74) 100%),
             url('../assets/images/solution.png') center / cover no-repeat;
     }
 

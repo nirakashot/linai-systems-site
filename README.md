@@ -6,12 +6,12 @@ Official website for LinAI Systems - AI-powered phone assistant for restaurants.
 [www.linaisystems.com](https://www.linaisystems.com)
 
 ## 📋 About
-LinAI Systems provides an always-on, human-like AI phone assistant that helps restaurants:
+LinAI Systems provides AI phone and direct online ordering tools that help restaurants:
 - Never miss calls during peak hours
 - Take accurate orders with fewer mistakes
 - Reduce labor costs
-- Provide 24/7 availability
-- Support multiple languages
+- Send orders into existing thermal-printer workflows
+- Avoid percentage commissions with flat per-order pricing
 
 ## 🛠️ Technology Stack
 - HTML5
