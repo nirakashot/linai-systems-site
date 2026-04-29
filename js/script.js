@@ -88,31 +88,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const ordersDisplay = document.getElementById('ordersDisplay');
     const calculatorResult = document.getElementById('calculatorResult');
 
-    const WEB_FEE = 0.99;
-    const AVG_ORDER_VALUE = 35;
-    const MARKETPLACE_COMMISSION_RATE = 0.20;
+    const STAFF_HOURLY_COST = 18;
+    const DAYS_PER_MONTH = 30;
+    const FUTURE_PHONE_PORT_SAVINGS = 60;
     const pageLang = document.documentElement.lang || 'en';
     const copy = {
         en: {
-            empty: 'Slide to estimate your monthly savings',
-            orders: 'direct orders/mo',
-            save: 'Estimated savings',
-            vs: 'vs. 20% marketplace commission',
-            keep: 'More revenue stays with the restaurant'
+            empty: 'Slide to estimate monthly labor savings',
+            coverage: 'phone coverage hours/mo',
+            labor: 'Phone staff cost avoided',
+            port: 'Future phone-port savings',
+            total: 'Rough monthly savings',
+            note: 'AI answers the phone instead of adding a dedicated phone shift.'
         },
         zh: {
-            empty: '拖动滑块估算每月节省',
-            orders: '自有订单/月',
-            save: '预计可省',
-            vs: '对比 20% 外卖平台抽成',
-            keep: '更多订单收入留在餐厅'
+            empty: '拖动滑块估算每月人工节省',
+            coverage: '电话覆盖小时/月',
+            labor: '可少掉的接电话人工',
+            port: '未来电话port后的额外节省',
+            total: '粗略每月可省',
+            note: '用AI接电话，少安排一个专门守电话的班。'
         },
         es: {
-            empty: 'Mueva el control para estimar su ahorro mensual',
-            orders: 'pedidos directos/mes',
-            save: 'Ahorro estimado',
-            vs: 'vs. comisión de marketplace del 20%',
-            keep: 'Más ingresos quedan en el restaurante'
+            empty: 'Mueva el control para estimar ahorro mensual en personal',
+            coverage: 'horas de teléfono/mes',
+            labor: 'Costo de personal telefónico evitado',
+            port: 'Ahorro futuro por portar el teléfono',
+            total: 'Ahorro mensual aproximado',
+            note: 'AI contesta el teléfono en lugar de agregar un turno dedicado.'
         }
     }[pageLang.startsWith('zh') ? 'zh' : pageLang.startsWith('es') ? 'es' : 'en'];
 
@@ -120,28 +123,28 @@ document.addEventListener('DOMContentLoaded', function() {
         return num.toLocaleString('en-US');
     }
 
-    function calculatePricing(dailyOrders) {
+    function calculatePricing(dailyPhoneHours) {
         // Update display value
         if (ordersDisplay) {
-            ordersDisplay.textContent = dailyOrders;
+            ordersDisplay.textContent = dailyPhoneHours;
         }
 
-        if (!dailyOrders || dailyOrders <= 0) {
+        if (!dailyPhoneHours || dailyPhoneHours <= 0) {
             calculatorResult.innerHTML = `<div class="best-plan">${copy.empty}</div>`;
             return;
         }
 
-        const monthlyOrders = dailyOrders * 30;
-        const marketplaceCommission = monthlyOrders * AVG_ORDER_VALUE * MARKETPLACE_COMMISSION_RATE;
-        const directOrderFee = monthlyOrders * WEB_FEE;
-        const savings = Math.max(0, marketplaceCommission - directOrderFee);
+        const monthlyCoverageHours = dailyPhoneHours * DAYS_PER_MONTH;
+        const laborSavings = monthlyCoverageHours * STAFF_HOURLY_COST;
+        const totalSavings = laborSavings + FUTURE_PHONE_PORT_SAVINGS;
 
         const html = `
             <div class="best-plan">
-                <strong>${formatNumber(monthlyOrders)} ${copy.orders}</strong><br>
-                ${copy.save}: <strong>$${formatNumber(Math.round(savings))}/mo</strong><br>
-                <span>${copy.vs}</span><br>
-                <span>${copy.keep}</span>
+                <strong>${formatNumber(monthlyCoverageHours)} ${copy.coverage}</strong><br>
+                ${copy.labor}: <strong>$${formatNumber(Math.round(laborSavings))}/mo</strong><br>
+                ${copy.port}: <strong>$${formatNumber(FUTURE_PHONE_PORT_SAVINGS)}/mo</strong><br>
+                ${copy.total}: <strong>$${formatNumber(Math.round(totalSavings))}/mo</strong><br>
+                <span>${copy.note}</span>
             </div>
         `;
 

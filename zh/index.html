@@ -267,21 +267,21 @@
 
             <!-- Savings Calculator -->
             <div class="pricing-calculator">
-                <h3>看看自有订单能省多少</h3>
-                <p>拖动滑块，对比餐厅自有网站订单和常见外卖平台抽成。</p>
+                <h3>粗略估算能省多少人工</h3>
+                <p>拖动滑块，对比用AI电话接单和请人高峰期守电话的大概成本。</p>
                 <div class="calculator-slider">
                     <div class="slider-value">
-                        <span id="ordersDisplay">30</span>
-                        <span class="value-label"> 单/天</span>
+                        <span id="ordersDisplay">4</span>
+                        <span class="value-label"> 小时电话覆盖/天</span>
                     </div>
-                    <input type="range" id="dailyOrders" min="5" max="200" value="30">
+                    <input type="range" id="dailyOrders" min="1" max="10" value="4">
                     <div class="slider-range">
-                        <span>5/天</span>
-                        <span>200/天</span>
+                        <span>1小时/天</span>
+                        <span>10小时/天</span>
                     </div>
                 </div>
                 <div id="calculatorResult" class="calculator-result"></div>
-                <p class="calculator-note">估算基于每单 $35、外卖平台 20% 抽成。实际节省会根据菜单价格和订单结构变化。</p>
+                <p class="calculator-note">粗略估算按接电话人工综合成本 $18/小时，以及未来商业电话 port 进来后每月约 $60 电话线或转接费用节省计算。AI每单固定费另算。</p>
             </div>
         </div>
     </section>
