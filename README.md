@@ -31,8 +31,9 @@ linai-systems-site/
 │   └── images/            # Website images
 │       ├── missed-calls.jpg
 │       ├── incorrect-orders.jpg
-│       ├── language-barriers.jpg
-│       └── problems-summary.jpg
+│       ├── noisy-calls.jpg
+│       ├── solution.jpg
+│       └── logo.svg
 ├── README.md              # This file
 └── .gitignore            # Git ignore rules
 ```

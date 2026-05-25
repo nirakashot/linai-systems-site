@@ -38,3 +38,10 @@ build/
 *.bak
 *.backup
 *~
+
+# Local design scratch files
+hero-demo.html
+logo-concepts.html
+logo-l-*.html
+testimage/
+assets/images/.old-backup/
