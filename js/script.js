@@ -94,28 +94,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageLang = document.documentElement.lang || 'en';
     const copy = {
         en: {
-            empty: 'Slide to estimate monthly labor savings',
-            coverage: 'phone coverage hours/mo',
-            labor: 'Phone staff cost avoided',
-            port: 'Future phone-port savings',
-            total: 'Rough monthly savings',
-            note: 'AI answers the phone instead of adding a dedicated phone shift.'
+            empty: 'Slide to see your monthly savings',
+            heroLabel: 'could go back in your pocket every month',
+            breakdownHours: 'your staff get back',
+            breakdownLabor: 'phone-shift labor avoided',
+            breakdownPort: 'phone-line savings once ported',
+            hoursUnit: 'hrs/mo'
         },
         zh: {
-            empty: '拖动滑块估算每月人工节省',
-            coverage: '电话覆盖小时/月',
-            labor: '可少掉的接电话人工',
-            port: '未来电话port后的额外节省',
-            total: '粗略每月可省',
-            note: '用AI接电话，少安排一个专门守电话的班。'
+            empty: '拖动滑块看看每月可以省多少',
+            heroLabel: '每月可以回到你口袋的钱',
+            breakdownHours: '员工时间还给厨房和顾客',
+            breakdownLabor: '省下的接电话人工',
+            breakdownPort: '号码port后电话线节省',
+            hoursUnit: '小时/月'
         },
         es: {
-            empty: 'Mueva el control para estimar ahorro mensual en personal',
-            coverage: 'horas de teléfono/mes',
-            labor: 'Costo de personal telefónico evitado',
-            port: 'Ahorro futuro por portar el teléfono',
-            total: 'Ahorro mensual aproximado',
-            note: 'AI contesta el teléfono en lugar de agregar un turno dedicado.'
+            empty: 'Mueva el control para ver el ahorro mensual',
+            heroLabel: 'podrían volver a tu bolsillo cada mes',
+            breakdownHours: 'que tu equipo recupera',
+            breakdownLabor: 'de turno telefónico evitado',
+            breakdownPort: 'de línea telefónica una vez portada',
+            hoursUnit: 'hrs/mes'
         }
     }[pageLang.startsWith('zh') ? 'zh' : pageLang.startsWith('es') ? 'es' : 'en'];
 
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (!dailyPhoneHours || dailyPhoneHours <= 0) {
-            calculatorResult.innerHTML = `<div class="best-plan">${copy.empty}</div>`;
+            calculatorResult.innerHTML = `<div class="result-empty">${copy.empty}</div>`;
             return;
         }
 
@@ -139,13 +139,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalSavings = laborSavings + FUTURE_PHONE_PORT_SAVINGS;
 
         const html = `
-            <div class="best-plan">
-                <strong>${formatNumber(monthlyCoverageHours)} ${copy.coverage}</strong><br>
-                ${copy.labor}: <strong>$${formatNumber(Math.round(laborSavings))}/mo</strong><br>
-                ${copy.port}: <strong>$${formatNumber(FUTURE_PHONE_PORT_SAVINGS)}/mo</strong><br>
-                ${copy.total}: <strong>$${formatNumber(Math.round(totalSavings))}/mo</strong><br>
-                <span>${copy.note}</span>
+            <div class="result-hero">
+                <div class="result-amount">$${formatNumber(Math.round(totalSavings))}<span class="result-amount-unit">/mo</span></div>
+                <div class="result-amount-label">${copy.heroLabel}</div>
             </div>
+            <ul class="result-breakdown">
+                <li><strong>${formatNumber(monthlyCoverageHours)} ${copy.hoursUnit}</strong><span>${copy.breakdownHours}</span></li>
+                <li><strong>$${formatNumber(Math.round(laborSavings))}</strong><span>${copy.breakdownLabor}</span></li>
+                <li><strong>$${FUTURE_PHONE_PORT_SAVINGS}</strong><span>${copy.breakdownPort}</span></li>
+            </ul>
         `;
 
         calculatorResult.innerHTML = html;
